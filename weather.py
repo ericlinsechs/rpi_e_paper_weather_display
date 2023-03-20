@@ -182,10 +182,7 @@ class Pollution:
         self.data = requests.get(f"https://api.openweathermap.org/data/2.5/air_pollution?lat={self.latitude}&lon={self.longitude}&appid={self.api_key}").json()
         return self.data
     def current_air_quality(self):
-        # print(*self.data)
-        # print(*self.data["list"])
         aqi = self.data["list"][0]["main"]["aqi"]
-        # print(aqi)
         air_quality = ""
         if aqi == 1:
             air_quality = "good"

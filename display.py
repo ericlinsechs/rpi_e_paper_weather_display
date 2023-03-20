@@ -68,9 +68,6 @@ quote_font160 = ImageFont.truetype(quote_font, 160)
 
 class Display:
     def __init__(self):
-        # self.background = Image.new('1', (800, 480), 255)
-        # Open template file
-        # self.im = Image.open("pic/breaking_bad_line.png")
         self.im = Image.open("pic/gtr1.png")
         self.im = ImageOps.fit(self.im, (800, 480), method = 0, bleed = 0.0, centering =(0.5, 0.5)) 
         self.background = self.im.filter(ImageFilter.GaussianBlur(1))
