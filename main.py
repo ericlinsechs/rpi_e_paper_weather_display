@@ -20,7 +20,7 @@ api_key = "Your API KEY"
 location = "Your City"
 lat = ''
 lon = ''
-city_id = "CITY ID"
+city_id = "110204"
 units = 'metric'
 
 BASE_URL = "https://api.openweathermap.org/data/2.5/weather?"

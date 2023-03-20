@@ -1,35 +1,28 @@
-<h1>E-paper Weather Display</h1>
-<br>
-  Raspberry Pi weather display using Waveshare e-paper 7.5 inch display, Open Weather Map API, and Python.
+# Raspberry Pi E-Paper Weather Display
+  This project is a Raspberry Pi-based weather display that uses an E-Paper display to show the current weather conditions and a famous qoute. It uses the OpenWeatherMap API to retrieve weather data for a specified location and displays the information on a 7.5 inch E-Paper display.
 
-<h1>Setup</h1>
-  <ol type="1">
-    <li>The first thing you need is a free API key from https://home.openweathermap.org/users/sign_up.</li>
-    <li>Open 'weather.py' and replace **Key Here** with your API key.</li>
-    <li>**Location** can be left as it is unless you want to add it to your display.</li>
-    <li>Get your **longitude** and **lattitude** using I used https://www.latlong.net and put that in as well.</li>
-    <li>Set CSV_OPTION to False if you would not like weather data appended to 'records.csv' after every refresh.</li>
-    <li>There is also a reminder for taking out the trash near the end of the script that you will want to change if your trash pickup doesn't come on Monday and Thursday like mine. :)</li>
-  </ol>
-<br>
-That's about it. Run the python file and you should see output on the display. 
+  This project is based on [this repo](https://github.com/AbnormalDistributions/e_paper_weather_display).
 
-# Note 
-If you are not using a 7.5 inch Version 2 display, you will want to replace 'epd7in5_V2.py' in the 'lib' folder with whichever one you have from https://github.com/waveshare/e-Paper/tree/master/RaspberryPi%26JetsonNano/python/lib/waveshare_epd<br>
-Fairly extensive adjustments will have to be made for other sized screens.
+  ## Requirements
+  To use this project, you will need the following:
 
-# Parts
-<ul>
-  <li>https://www.waveshare.com/wiki/7.5inch_e-Paper_HAT</li>
-  <li>Raspberry Pi Zero W, but this will run on any of them except the Pi Zero that doesn't have soldered headers.</li>
-  <li>SD card for the Pi at least 8 GB.</li>
-  <li>Power supply for the Pi.</li>
-  <li>5 x 7 inch photo frame from a thrift store.</li>
-</ul>
+  - A Raspberry Pi (In my case I use Raspberry Pi Zero W)
+  - A Waveshare 7.5 inch E-Paper display (other displays may work, but have not been tested)
+  - Python 3.7 or higher
+  - A free OpenWeatherMap API key
+  - A microSD card with Raspberry Pi OS installed
 
-<h1>Licensing</h1>
-  <ul>
-    <li>Weather Icons licensed under [SIL OFL 1.1](http://scripts.sil.org/OFL)</li>
-    <li>Code licensed under [MIT License](http://opensource.org/licenses/mit-license.html)</li>
-    <li>Documentation licensed under [CC BY 3.0](http://creativecommons.org/licenses/by/3.0)</li>
-  <ul>
+  ## Installation
+  To install the necessary dependencies for this project, run the following commands:
+  ```bash
+  sudo apt-get update
+  sudo apt-get install python3-pip python3-pil python3-numpy
+  pip3 install RPi.GPIO spidev requests
+  ```
+  Next, clone this repository:
+  ```bash
+  git clone https://github.com/ericlinsechs/rpi_e_paper_weather_display.git
+  ```
+
+  ## License
+  - This project is licensed under the MIT License - see the LICENSE.md file for details.
