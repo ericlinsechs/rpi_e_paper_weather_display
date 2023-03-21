@@ -10,7 +10,6 @@ class Weather:
         self.city_id = city_id
         self.units = units
         self.data = requests.get(f"https://api.openweathermap.org/data/2.5/weather?id={self.city_id}&appid={self.api_key}&units={self.units}").json()
-        pass
 
     def update(self):
         self.data = requests.get(f"https://api.openweathermap.org/data/2.5/weather?id={self.city_id}&appid={self.api_key}&units={self.units}").json()
@@ -29,16 +28,16 @@ class Weather:
         return time.strftime("%H:%M", time.localtime(self.data["dt"]))
     
     def current_temp(self):
-        return "{:.0f}".format(self.data["main"]["temp"]) + u"\N{DEGREE SIGN}C"
+        return f"{int(self.data['main']['temp'])}\N{DEGREE SIGN}C"
 
     def current_temp_min(self):
-        return "{:.0f}".format(self.data["main"]["temp_min"]) + u"\N{DEGREE SIGN}"
-        
+        return f"{int(self.data['main']['temp_min'])}\N{DEGREE SIGN}"
+
     def current_temp_max(self):
-         return "{:.0f}".format(self.data["main"]["temp_max"]) + u"\N{DEGREE SIGN}"
-    
+        return f"{int(self.data['main']['temp_max'])}\N{DEGREE SIGN}"
+
     def current_feels_like(self):
-        return "{:.0f}".format(self.data["main"]["feels_like"]) + u"\N{DEGREE SIGN}C"
+        return f"{int(self.data['main']['feels_like'])}\N{DEGREE SIGN}C"
     
     def current_feels_like_icon(self):
         deg = self.data["main"]["feels_like"]
@@ -52,13 +51,13 @@ class Weather:
         return icon_name
 
     def current_hum(self):
-        return "{:.0f}".format(self.data["main"]["humidity"]) + "%"
+        return "{:.0f}%".format(self.data["main"]["humidity"])
 
     def current_pressure(self):
-        return "{:.0f}".format(self.data["main"]["pressure"]) + "hPa"
+        return "{:.0f}hPa".format(self.data["main"]["pressure"])
 
     def current_cloud_cov(self):
-        return "{:.0f}".format(self.data["clouds"]) + "%"
+        return "{:.0f}%".format(self.data["clouds"])
 
     def current_sunrise(self):
         return time.strftime("%H:%M", time.localtime(self.data["sys"]["sunrise"]))
@@ -140,7 +139,7 @@ class Forecast:
         self.city_id = city_id
         self.units = units
         self.data = requests.get(f"https://api.openweathermap.org/data/2.5/forecast?id={self.city_id}&appid={self.api_key}&units={self.units}").json()
-        pass
+
     def update(self):
         self.data = requests.get(f"https://api.openweathermap.org/data/2.5/forecast?id={self.city_id}&appid={self.api_key}&units={self.units}").json()
         return self.data
